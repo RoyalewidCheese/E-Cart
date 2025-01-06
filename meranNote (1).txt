@@ -589,7 +589,7 @@
             - Important css styling component libraries: 
               - Material UI : npm install @mui/material @emotion/react @emotion/styled
               - React Bootstrap: npm install react-bootstrap bootstrap. Choose a theme in order to apply bootstrap property in react project, use https://bootswatch.com/ for selecting theme. Download bootstrap.min.css file of the theme and add that file inside project src folder. import bootstrap.min.cs file  to main.jsx file of project.
-
+              -  Tailwind CSS: npm install -D tailwindcss postcss autoprefixer, npx tailwindcss init -p, use the guideline from given link: https://tailwindcss.com/docs/guides/vite
         10. Event Handling in React :  syntax: event ={function call}
               - Binding function witout arguments : event ={functionName}
               - Binding function with arguments : event -{()=> functionName(argunet)}
@@ -616,6 +616,8 @@
             - 1. Render the entire react app inside "BrowserRouter"  component of react-router-dom library, provide this in main.jsx.
             - 2. Inorder to set up path for component, make each component must be inside "Routes" component of react-router-dom library, provide this step inside App.jsx file.
             - 3. To set up path for an component, use "Route" component of react-router-dom library. Route component has attributes like "path" and "element" inorder to setup routes for component. All Route component must be inside Routes component.
+          - Dynamic Routing: we can set up a dynamic / changing value in a url along : Symbol. so react app will understand the value along with a : is a dynamic part of this url.
+           
         15. Higher Order Components (HOC) : are components whose props argument will give another component, eg: Route Component 
         17. Axios call in react:
             - using axios library: install axios: npm i axios
@@ -678,6 +680,12 @@
               - createSlice() : used to combine action and reducer in a single file.
                   - steps to use slice for react app
                     - create a js file for defining slice
+                    -createAsyncThunk() : used to make asyncronous call in an action in redux. It accepts 2 arguments, first argument is action type string("slice-name/action-name), second argument is a callback function it can return a promise. its output can be 3 types.
+                      - pending: when asyncronous call is in progress
+                      - fulfilled: when asyncronous call is success
+                      - rejected: when asyncronous call is failed
+              "ExtraReducers" in slice can handle promise return action. Because it has define different cases to update slice state based on promise output.
+              
           4. Hooks used in components for managing state using redux
               - useSelector(state=>state.reducer_name): used to select state from store in a component.
               - useDispatch(): used to execute an action from a component. Hook will return a function that is capable of dispatching an action as its argument when we call the function.

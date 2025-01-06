@@ -1,14 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { Route,Routes } from 'react-router-dom'
+import Pnf from './pages/Cart'
+import Home from './pages/Home'
+import Wishlist from './pages/Wishlist'
+import View from './pages/View'
+import Cart from './pages/Cart'
+import Footer from './components/Footer'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-    <h1 className='text-center font-bold text-3xl'>E-Cart</h1>
+    <Routes>
+      <Route path='/' element={<Home/>} />
+      <Route path='/wishlist' element={<Wishlist/>} />
+      <Route path='/cart' element={<Cart/>} />
+      <Route path='/:id/view' element={<View/>} />
+      <Route path='/*' element={<Pnf/>} />
+    </Routes>
+
+    {/* Footer */}
+    <Footer/>
     </>
   )
 }
