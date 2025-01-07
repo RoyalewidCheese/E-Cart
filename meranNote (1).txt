@@ -606,6 +606,9 @@
                   - useEffect(callbackfn, dependency) : used to apply side effects to a functional component. we can pass side effect as its first argument as call back function,  we can also pass an optional dependency argument to decide when to apply side effects in component
                   - useRef(initial value): is a react hook that lets you reference a value that's not needed for rendering. Initial value is optional , it returns an object  "current" key
                 - Custom hooks :   create js file to define a specific  function for a  special task. export the function from that file.  function name must start with 'use' keyword
+                - useSelector() : used to access state from redux store
+                - useDispatch() : used to dispatch an action to redux store
+                - useParams() : used to access parameters from URL
         13. Form handling in react :  There are 2  ways to hmanage data inside the form by a component
           - Controlled Components :  are componeents which store form data inside its own state
           - Uncontrolled Components : components who access form data using its DOM elements reference
@@ -685,7 +688,7 @@
                       - fulfilled: when asyncronous call is success
                       - rejected: when asyncronous call is failed
               "ExtraReducers" in slice can handle promise return action. Because it has define different cases to update slice state based on promise output.
-              
+
           4. Hooks used in components for managing state using redux
               - useSelector(state=>state.reducer_name): used to select state from store in a component.
               - useDispatch(): used to execute an action from a component. Hook will return a function that is capable of dispatching an action as its argument when we call the function.

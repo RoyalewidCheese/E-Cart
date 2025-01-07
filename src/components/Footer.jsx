@@ -51,12 +51,6 @@ const Footer = () => {
       className='flex-1 p-2 border rounded-l' 
       required 
     />
-    <button 
-      type='submit' 
-      className='bg-blue-500 text-white px-3 py-2 rounded-r text-sm flex items-center'
-    >
-      <i className='fa-solid fa-arrow-right'></i>
-    </button>
 </div>
 </div>
 
