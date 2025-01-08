@@ -1,28 +1,48 @@
 import React from 'react'
 import Header from '../components/Header'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { removeItem } from '../redux/slices/wishlistSlice'
 
 const Wishlist = () => {
+  const userWishlist = useSelector(state => state.wishlistReducer)
+  const dispatch = useDispatch()
+
   return (
     <>
     <Header/>
     <div style={{paddingTop:'100px'}} className='px-5'>
+      {
+        userWishlist?.length>0?
+        
       <>
       <h1 className='text-4xl font-bold text-red-600'>My Wishlist</h1>
       <div className='grid grid-cols-4 gap-4'>
-        <div className='rounded border p-2 shadow'>
-          <img width={'100%'} height={'200px'} src="https://png.pngtree.com/png-vector/20210124/ourmid/pngtree-3d-shopping-basket-and-trolley-paper-package-with-products-png-image_2796620.jpg" alt="Source Picture"></img>
+        {
+        userWishlist?.map(product =>(
+          <div className='rounded border p-2 shadow'>
+          <img width={'100%'} height={'200px'} src={product?.thumbnail} alt="Source Picture"></img>
         
           <div className='text-center'>
-            <h3 className='text-xl font -bold'>Product Name</h3>
+            <h3 className='text-xl font -bold'>{product?.title}</h3>
           <div className='flex justify-evenly mt-3'>
-            <button className='text-xl'><i class="fa-solid fa-heart-circle-xmark text-red-500"></i></button>
+            <button onClick={()=>dispatch(removeItem(product?.id))} className='text-xl'><i class="fa-solid fa-heart-circle-xmark text-red-500"></i></button>
             <button className='text-xl'><i class="fa-solid fa-cart-plus text-green-700"></i></button>
           </div>
           </div>
         </div>
+        ))
+}
         </div>
       </>
-    </div>
+  :
+  <div className='flex justify-center items-center h-screen'>
+    <img src="https://sa.adanione.com/~/media/Foundation/Adani/emptyImages/empty_cart.gif" alt=""/>
+  <h1 className='text-4xl font-bold text-red-600'>Your Wishlist is empty</h1>
+  </div>
+}
+</div>
     </>
   )
 }

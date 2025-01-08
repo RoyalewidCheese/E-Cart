@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Header = ({insideHome}) => {
+  const userWishlist = useSelector(state=>state.wishlistReducer)
   return (
     <nav className='flex bg-violet-600 fixed w-full p-5 text-white'>
       <Link className='text-2xl font-bold' to={'/'}><i className='fa-solid fa-truck-fast me-1'></i>E Cart</Link>
@@ -11,7 +13,7 @@ const Header = ({insideHome}) => {
       }
         <li className='List-none inline-block px-5 items-center space-x-2'><Link to={'/wishlist'}><i className='fa-solid fa-heart text-red-600'></i>
         <span>Wishlist</span>
-        <span className='bg-black text-white rounded p-1'>0</span>
+        <span className='bg-black text-white rounded p-1'>{userWishlist?.length}</span>
         </Link></li>
 
         <li className='list-none inline-block px-5 items-center space-x-2'><Link to={'/Cart'}>
